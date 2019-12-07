@@ -17,6 +17,10 @@
       select * from t_user ;
     </select>
 
+    <select id="getUser" resultMap="User" parameterType="int">
+        select * from t_user WHERE user_id = #{id}
+    </select>
+
     <update id="updateUser" parameterType="com.example.demo.model.User">
         UPDATE t_user
         <set>

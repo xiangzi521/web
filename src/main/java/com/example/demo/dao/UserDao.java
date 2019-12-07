@@ -13,6 +13,8 @@ public interface UserDao {
 
     int insert(User user);
 
+    User getUser(int id);
+
     void updateUser(User user);
 
     int deleteUser(int id);

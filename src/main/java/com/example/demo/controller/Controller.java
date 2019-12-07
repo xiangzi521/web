@@ -36,6 +36,13 @@ public class Controller {
         return userService.getAllUser();
     }
 
+    @ApiOperation("获取人员信息")
+    @GetMapping("/getUser")
+    public User getUser(int id) {
+        log.info("获取人员信息...");
+        return userService.getUser(id);
+    }
+
     @ApiOperation("修改人员信息")
     @PutMapping("/updateUser")
     public String updateUser(@RequestBody User user) {
