@@ -44,4 +44,14 @@ public class User {
     public void setPhone(Integer phone) {
         this.phone = phone;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", password=" + password +
+                ", phone=" + phone +
+                '}';
+    }
 }

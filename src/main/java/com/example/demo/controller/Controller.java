@@ -7,10 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,17 +24,29 @@ public class Controller {
     private static final Logger log = LoggerFactory.getLogger(Controller.class);
 
     @PutMapping("/add")
-    @ApiOperation(value = "新增人员信息",notes = "主键自增")
-    public int login(@RequestBody User user){
+    @ApiOperation(value = "新增人员信息", notes = "主键自增")
+    public int login(@RequestBody User user) {
         return userService.add(user);
     }
 
     @ApiOperation("获取所有人员信息")
     @GetMapping("/getAllUser")
-    public List<User> getAllUser(){
+    public List<User> getAllUser() {
         log.info("获取所有人员信息...");
         return userService.getAllUser();
     }
 
+    @ApiOperation("修改人员信息")
+    @PutMapping("/updateUser")
+    public String updateUser(@RequestBody User user) {
+         userService.updateUser(user);
+         return "success";
+    }
+
+    @ApiOperation("删除人员信息")
+    @DeleteMapping("/deleteUser")
+    public int deleteUser(int id){
+        return userService.deleteUser(id);
+    }
 
 }
