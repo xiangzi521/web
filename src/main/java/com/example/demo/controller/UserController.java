@@ -24,13 +24,13 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/user",method = RequestMethod.PUT)
+    @RequestMapping(value = "/user",method = RequestMethod.GET)
     public  String user(Model model){
 //        User user = userService.getUser(1000);
         List<User> users = userService.getAllUser();
         model.addAttribute("users",users);
 
-        return "user";
+        return "user/user";
     }
 
     @RequestMapping(value = "/show",method = RequestMethod.GET)

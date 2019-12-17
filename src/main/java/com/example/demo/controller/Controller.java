@@ -16,7 +16,7 @@ import java.util.List;
  * Created by Administrator on 2019/11/27.
  */
 @Api(tags = "User")
-@org.springframework.stereotype.Controller
+@RestController
 @RequestMapping("/user")
 @SuppressWarnings("all")
 public class Controller {

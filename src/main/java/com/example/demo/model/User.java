@@ -1,9 +1,11 @@
 package com.example.demo.model;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2019/11/27.
  */
-public class User {
+public class User implements Serializable {
 
     private Integer userId;
 
