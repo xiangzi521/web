@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2019/12/11.
  */
-@Api(tags = "添加jsp页面")
+@Api(tags = "thymeleaf-demo")
 @CrossOrigin //跨域
 @org.springframework.stereotype.Controller
 @RequestMapping("demo")
