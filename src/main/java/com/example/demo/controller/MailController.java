@@ -1,11 +1,13 @@
 package com.example.demo.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.mail.Message;
 import javax.mail.Session;
@@ -17,7 +19,9 @@ import java.util.Properties;
 /**
  * Created by Administrator on 2019/12/10.
  */
+@Api(tags = "Mail")
 @org.springframework.stereotype.Controller
+@RequestMapping("/mail")
 public class MailController {
 
     @Autowired
@@ -32,8 +36,8 @@ public class MailController {
     @Value("${spring.mail.host}")
     private String host;
 
-    @ResponseBody
-    @RequestMapping("index")
+    @GetMapping("index")
+    @ApiOperation("邮件主页详情")
     public String index(){
         return "success";
     }
@@ -42,7 +46,8 @@ public class MailController {
      *  还可以进一步提取，把接收者，邮件主题，邮件内容当作参数传递进来
      * @throws Exception
      */
-    @GetMapping("/send")
+    @ApiOperation("发送邮件")
+    @RequestMapping(value = "/send",method = RequestMethod.GET)
     public String send() throws Exception{
 
         //1.设置邮件相关属性

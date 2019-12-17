@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.dao.UserDao">
 
-    <insert id="insert" parameterType="com.example.demo.model.User">
+    <!--useGeneratedKeys="true" keyProperty="id" 新增user时 返回主键 id是对应实体类的字段-->
+    <insert id="insert" parameterType="com.example.demo.model.User" >
         INSERT into t_user (user_name,password,phone) VALUE (#{userName},#{password},#{phone})
     </insert>
 
