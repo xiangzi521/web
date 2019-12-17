@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
-/**
+/** 返回视图
  * Created by Administrator on 2019/12/11.
  */
 @Api(tags = "thymeleaf-demo")
@@ -35,6 +35,6 @@ public class UserController {
 
     @RequestMapping(value = "/show",method = RequestMethod.GET)
     public @ResponseBody String showJsp(){
-        return "index";
+        return "success";
     }
 }
