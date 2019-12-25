@@ -43,6 +43,19 @@ public class UserServiceImpl implements UserService {
          return userDao.deleteUser(id);
     }
 
+    @Override
+    public void login(int userName, int password) {
+        User user = userDao.getUser(userName);
+        if (user == null){
+            System.out.println("user is null ");
+            return;
+        }
+
+        if (password != user.getPassword()){
+            System.out.println("请输入真确的密码");
+            return;
+        }
+    }
 
     @Override
     public void say() {

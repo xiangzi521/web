@@ -26,11 +26,22 @@ public class UserController {
 
     @RequestMapping(value = "/user",method = RequestMethod.GET)
     public  String user(Model model){
-//        User user = userService.getUser(1000);
         List<User> users = userService.getAllUser();
         model.addAttribute("users",users);
-
         return "user/user";
+    }
+
+    @RequestMapping(value = "/getOneUser",method = RequestMethod.GET)
+    public String getOneUser(Model model,int id){
+        User users = userService.getUser(id);
+        model.addAttribute("users",users);
+        return "user/user";
+    }
+
+    @RequestMapping(value = "/login",method = RequestMethod.GET)
+    public String login(int userName,int password){
+        userService.login(userName,password);
+        return "user/success";
     }
 
     @RequestMapping(value = "/show",method = RequestMethod.GET)

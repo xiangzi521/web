@@ -20,4 +20,7 @@ public interface UserService {
     int deleteUser(int id);
 
     void say();
+
+    void login(int userName,int password);
+
 }
