@@ -44,17 +44,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void login(int userName, int password) {
+    public User login(int userName, int password) {
         User user = userDao.getUser(userName);
         if (user == null){
             System.out.println("user is null ");
-            return;
+            return user;
         }
 
         if (password != user.getPassword()){
             System.out.println("请输入真确的密码");
-            return;
+            return null;
         }
+        return user;
+
     }
 
     @Override

@@ -41,8 +41,8 @@ public class Controller {
     @RequestMapping(value = "/getAllUser",method = RequestMethod.GET)
     public List<User> getAllUser() {
         log.info("获取所有人员信息...");
-        Object bool = redisUtils.get("name");
-        System.out.println("redisUtils.get(name) : " + bool);
+//        Object bool = redisUtils.get("name");
+//        System.out.println("redisUtils.get(name) : " + bool);
         return userService.getAllUser();
     }
 

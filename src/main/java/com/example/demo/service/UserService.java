@@ -21,6 +21,6 @@ public interface UserService {
 
     void say();
 
-    void login(int userName,int password);
+    User login(int userName,int password);
 
 }

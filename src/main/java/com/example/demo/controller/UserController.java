@@ -39,9 +39,14 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login",method = RequestMethod.GET)
+    @ResponseBody
     public String login(int userName,int password){
-        userService.login(userName,password);
-        return "user/success";
+        User user = userService.login(userName, password);
+        if (user == null){
+            return "user/error";
+        }else {
+            return "user/success";
+        }
     }
 
     @RequestMapping(value = "/show",method = RequestMethod.GET)
