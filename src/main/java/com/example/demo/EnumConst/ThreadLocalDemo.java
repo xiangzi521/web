@@ -20,7 +20,18 @@ public class ThreadLocalDemo {
     public static void main(String[] args) {
        final ThreadLocalDemo demo = new ThreadLocalDemo();
 
-       new Thread(()->{
+        for (int i = 0; i < 1000; i++) {
+            new Thread(()->{
+                List<String> list = new ArrayList<>();
+                list.add("1");
+//                list.add("2");
+//                list.add("3");
+                demo.setThreadLocal(list);
+                demo.getThreadLocal();
+            },"t"+i).start();
+        }
+
+       /*new Thread(()->{
            List<String> list = new ArrayList<>();
            list.add("1");
            list.add("2");
@@ -36,7 +47,7 @@ public class ThreadLocalDemo {
             list.add("c");
             demo.setThreadLocal(list);
             demo.getThreadLocal();
-        },"t2").start();
+        },"t2").start();*/
 
     }
 

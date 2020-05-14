@@ -39,7 +39,7 @@ public class MailController {
     @GetMapping("index")
     @ApiOperation("邮件主页详情")
     public String index(){
-        return "success";
+        return "user/success";
     }
 
     /**
